@@ -1,0 +1,47 @@
+*,
+*::after,
+*::before {
+    margin:0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    //This define what 1rem is
+    font-size: 62.5%;/*1rem = 10px; 10px/16px=62.6%*/
+
+    //Adding Media Queries
+    /* No need coz tab-port can also carry it
+    @include respond(phone) { //media query for phone
+        font-size: 50%;
+    }*/
+
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 8/16 = 56.25%
+    }
+
+    @include respond(tab-port) { // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+
+    @include respond(big-desktop) { //media query for big-desktop
+        font-size: 75%;//1 rem = 12px, 12/16 = 75%
+    }
+ 
+}
+
+body { 
+    //better practice good to inherit
+    box-sizing:border-box; 
+    padding: 3rem; /*Adding body padding 30px/10 to convert to rem which is in the html*/
+
+    @include respond(tab-port) { // width < 900?
+        padding: 0;
+    }
+}
+
+
+::selection { //when text is selected it will highlight with background color and diff text color
+    background-color: $color-primary;
+    color: $color-white;
+}

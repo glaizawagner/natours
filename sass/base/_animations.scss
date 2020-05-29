@@ -1,0 +1,46 @@
+
+/* Start of Animation for Left*/
+@keyframes moveInLeft { 
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem); /*- to the left*/
+    }
+    /*60% {
+        transform: rotate(180deg);} /* use for rotations*/  
+    80% {
+        transform: translateX(1rem);  /*rotate(180deg);+num go to the right side*/
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);/**/
+    }
+}
+/* End of Left Animation*/
+/* Start of Animation for Right*/
+@keyframes moveInRight { 
+    0% {
+        opacity: 0;
+        transform: translateX(10rem); /*move to the right*/
+    }
+    80% {
+        transform: translateX(-1rem);/*move to the left*/
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+/* End of Right Animation*/
+/* Start of Animation for Bottom*/
+@keyframes moveInBottom { 
+    0% {
+        opacity: 0;
+        transform: translateY(3rem); 
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+/* End of Bottom Animation*/

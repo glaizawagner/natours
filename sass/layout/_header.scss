@@ -1,0 +1,54 @@
+.header{
+    height: 85vh; //ViewportHeight-almost 100%
+    background-image: linear-gradient(to right bottom, 
+    rgba($color-primary-light,0.8),
+    rgba($color-primary-dark, 0.8)),
+    url(../img/hero-small.jpg); //L-G set where the color start
+    background-size: cover; //Based on vh
+    background-position: top;
+    position: relative;
+
+
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) { //For safari
+        -webkit-clip-path: polygon(0% 0%, 100% 0% , 100% 75vh, 0% 100%);
+        clip-path: polygon(0% 0%, 100% 0% , 100% 75vh, 0% 100%); //x y position (1-lefttop,2-rt, 3-rb,4-lb)
+        height: 95vh;
+    }
+
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+            only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+            only screen and (min-width: 125em)  { //resolution for apple retina screen, same as min-width NOTE media queries are always in em that's an or ,(min-width: 2000px/16 = 125em), -webkit is for safari
+        background-image: linear-gradient(to right bottom, 
+        rgba($color-primary-light,0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    }
+
+    @include respond(phone) {
+        clip-path: polygon(0% 0%, 100% 0% , 100% 85vh, 0% 100%); //x y position (1-lefttop,2-rt, 3-rb,4-lb)
+        -webkit-clip-path: polygon(0% 0%, 100% 0% , 100% 85vh, 0% 100%);
+    }
+
+    &__logo-box {
+       position: absolute;
+       top: 4rem;
+       left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%; /* in relation to the parent element*/
+        left: 50%; /* in relation to the parent element*/
+        transform: translate(-50%,-50%);/*shifted half to the left side w-h*/
+        text-align: center;
+    }
+}
+
+/* if you want to put animation in logo when hover
+.logo:hover {
+    animation: moveInRight 1s ease-out;
+}*/
