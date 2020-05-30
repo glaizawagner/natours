@@ -1110,7 +1110,7 @@ body {
 }
 
 .navigation__nav {
-  height: 100vh;
+  /* height: 100vh; */
   position: fixed;
   top: 0;
   left: 0;
@@ -1122,27 +1122,31 @@ body {
 
 .navigation__list {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  backface-visibility: none;
+  transform: translateY(50%);
   list-style: none;
   text-align: center;
   width: 100%;
+
+  background-color: transparent;
 }
 
 .navigation__item {
-  margin: 1rem;
+  width: 50%;
+  margin: 1rem auto;
 }
 
 .navigation__link:link,
 .navigation__link:visited {
   display: inline-block;
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 300;
   padding: 1rem 2rem;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
+  backface-visibility: hidden;
+  transition: none;
   background-image: linear-gradient(
     120deg,
     transparent 0%,
@@ -1160,13 +1164,14 @@ body {
 
 .navigation__link:hover,
 .navigation__link:active {
+  backface-visibility: hidden;
   background-position: 100%;
   color: #55c57a;
   transform: translateX(1rem);
 }
 
 .navigation__checkbox:checked ~ .navigation__background {
-  transform: scale(80);
+  transform: scale(100);
 }
 
 .navigation__checkbox:checked ~ .navigation__nav {
@@ -1178,6 +1183,7 @@ body {
   position: relative;
   margin-top: 2.5rem;
 }
+
 .navigation__icon,
 .navigation__icon::before,
 .navigation__icon::after {
